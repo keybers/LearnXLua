@@ -213,6 +213,50 @@ public static class Lesson10
 
 #endregion
 
+#region 调用泛型方法
+public class Lesson12
+{
+    public interface ITest
+    {
+
+    }
+
+    public class TestFather
+    {
+
+    }
+
+    public class TestChild : TestFather
+    {
+
+    }
+
+    public void TestFun1<T>(T a,T b) where T: TestFather
+    {
+        Debug.Log("有参数有约束的泛型方法");
+
+    }
+
+    public void TestFun2<T>(T a)
+    {
+        Debug.Log("有参数，没有约束");
+    }
+
+    public void TestFun3<T>()where T: TestFather
+    {
+        Debug.Log("有约束,但是没有参数的泛型函数");
+    }
+
+    public void TestFun4<T>(T a) where T : ITest
+    {
+
+    }
+
+}
+
+
+#endregion
+
 
 public class LuaCallCSharp : MonoBehaviour
 {

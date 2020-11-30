@@ -21,7 +21,7 @@ obj.unityAction = obj.unityAction + fun
 obj.customDelegate = funcustom
 obj.customDelegate = obj.customDelegate + funcustom
 
-print("****************减函数****************")
+print("****************加函数****************")
 --obj.unityAction()
 obj.customDelegate()
 --不建议这样写，最好还是声明后再加，不清楚匿名函数
