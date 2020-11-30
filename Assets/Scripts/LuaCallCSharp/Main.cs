@@ -8,7 +8,6 @@ using UnityEngine;
 /// </summary>
 public class Main : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         LuaManager.GetInstance().Init();
