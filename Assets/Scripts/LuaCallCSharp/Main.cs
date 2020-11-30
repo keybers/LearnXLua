@@ -14,10 +14,4 @@ public class Main : MonoBehaviour
         LuaManager.GetInstance().Init();
         LuaManager.GetInstance().DoLuaFile("Main");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
