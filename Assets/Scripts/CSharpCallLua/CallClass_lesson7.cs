@@ -32,7 +32,6 @@ public class testInClass
 
 public class CallClass_lesson7 : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         LuaManager.GetInstance().Init();
@@ -52,11 +51,5 @@ public class CallClass_lesson7 : MonoBehaviour
         CallLuaClass callLuaClass1 = LuaManager.GetInstance().Global.GetInPath<CallLuaClass>("testTable");
         Debug.Log(callLuaClass1.testInt);
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

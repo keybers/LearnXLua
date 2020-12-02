@@ -1,27 +1,18 @@
-print("主Lua脚本启动")
+print("**************准备就绪*******************")
+--初始化所有准备好的类别名
+require("InitClass")
+--初始化道具表信息
+require("ItemData")
 
---判断全局函数
-function IsNull(obj)
-	if(obj == nil or obj:Equals(nil)) then
-		return true
-	end
-	
-	return false
-end
---unity中写lua执行脚本
---xlua帮我们处理
---只要是执行lua脚本 都会自动进入我们的重定向函数中找文件
+--玩家信息获取
+--1.从本地读取 本地存储有几种方式 PlayerPrefabs 和 json 或者二进制
+--2.网络游戏 从服务器读取
+require("PlayerData")
+PlayerData:Init()
 
 
---require("Text")
+--之后的逻辑可以直接使用
+require("MainPanel")
+require("BagPanel")
 
---require("CallIEnum_lesson2")
---require("CallArray_lesson3")
---require("CallFunction_lesson4")
---require("CallFunction_lesson5")
---require("CallFunction_lesson6")
-require("CallDelegate_lesson7")
---require("Special_lesson8")
---require("Special_lesson9")
---require("Special_lesson10")
---require("Coroutine_lesson11")
+MainPanel:Show()

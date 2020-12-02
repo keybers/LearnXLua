@@ -249,7 +249,7 @@ public class Lesson12
 
     public void TestFun4<T>(T a) where T : ITest
     {
-
+        Debug.Log("有泛型约束，但约束是接口不是类");
     }
 
 }

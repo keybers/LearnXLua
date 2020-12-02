@@ -1,10 +1,6 @@
-﻿using Boo.Lang;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Networking;
 using XLua;
 
 //无参数无返回值委托，因为Xlua已经处理了所以认识
