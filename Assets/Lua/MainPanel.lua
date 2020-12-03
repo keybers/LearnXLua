@@ -17,6 +17,7 @@ function MainPanel:Init()
     --面板对象没有实例化过 才去实例化处理
     if  self.panelObj == nil then
         --实例化面板对象
+        --注意：这里存在大小写BUG，打包的AB包存储的是小写，但实例化大小写都行，而在后面例如bagpanel则只能按照AB包中的小写
         self.panelObj = ABManager:LoadRes("ui","MainPanel",typeof(GameObject))
         self.panelObj.transform:SetParent(Canvas,false) --false表示保持原有的缩放比例
         --找到对应控件
@@ -47,7 +48,6 @@ function MainPanel:Hide()
 end
 
 function MainPanel:OnClickRole()
-    print(123123)
     --打印自己，谁调用就用谁，不局限于MainPanel
     print(self.panelObj)
 

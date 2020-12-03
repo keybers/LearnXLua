@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2639994043
+CRC: 3138383497
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 54c234b960c5e0b7b788b4c46205ef88
+    Hash: f4c3ed12f4d4922889d14b6a7f585ef7
   TypeTreeHash:
     serializedVersion: 2
     Hash: c8a84cf10bb29e44464f39cd9c05aba4
@@ -46,7 +46,7 @@ ClassTypes:
 - Class: 687078895
   Script: {instanceID: 0}
 Assets:
-- Assets/ABRes/Prefabs/UI/BagPanel .prefab
+- Assets/ABRes/Prefabs/UI/BagPanel.prefab
 - Assets/ABRes/Prefabs/UI/ItemGrid.prefab
 - Assets/ABRes/SpriteAltas/Icon.spriteatlas
 - Assets/ABRes/Prefabs/UI/MainPanel.prefab

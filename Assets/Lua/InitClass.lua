@@ -26,7 +26,7 @@ UI = CS.UnityEngine.UI
 Image = UI.Image
 Text = UI.Text
 Button = UI.Button
-Taggle = UI.Taggle
+Toggle = UI.Toggle
 ScrollRect = UI.ScrollRect
 
 --对于该项目来说 是找一次就行了

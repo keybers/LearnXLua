@@ -1,4 +1,5 @@
 ﻿
+using System.Security.Cryptography;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -104,6 +105,7 @@ public class ABManager : SingletonAutoMono<ABManager>
         else
         {
             return obj;
+            
         }
 
     }
