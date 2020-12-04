@@ -96,7 +96,7 @@ function BagPanel:ChangeType(type)
 
     --更新之前 把老格子删除 BagPanel.items
     for i = 1, #self.items do
-        GameObject.Destroy(self.items[i].Object)
+        self.items[i]:Destroy()
     end
     self.items = {}
     --再根据当前选择的类型 来创建新的格子 BagPanel.items
@@ -115,32 +115,14 @@ function BagPanel:ChangeType(type)
     --一个格子表示一个对象 所以不需要创建N个对象脚本 通过临时创建一个空表对象grid来设置
     --创建格子
     for i = 1, #nowItems do
-        --有格子资源 在这加载格子资源 实例化 改变图片 和文本 以及位置即可
-        --用一张新表 代表格子对象 里面的属性 存储对应想要的信息
-        local grid = {}
-        grid.Object = ABManager:LoadRes("ui","ItemGrid");
-        --设置父对象
-        grid.Object.transform:SetParent(self.Content,false)
-        --设置位置 x+75,y-75是初始位置
-        grid.Object.transform.localPosition = Vector3((i-1)%4*150 + 75, math.floor((i-1)/4)*150 - 75, 0)
-        --设置图标
-        grid.imgIcon = grid.Object.transform:Find("imgIcon"):GetComponent(typeof(Image))
-        grid.Text = grid.Object.transform:Find("Text"):GetComponent(typeof(Text))
-        --设置数量
-        --通过 道具ID 去读取 道具配置表信息 得到图标信息
-        local data = ItemData[nowItems[i].id]
-        --想要的是data中的 图标信息
-        --根据名字 先加载图集 再加载图集中的 图标信息
-        local strs = string.split(data.icon,"_")
-        --加载图集
-        local spriteAtlas = ABManager:LoadRes("ui",strs[1],typeof(SpriteAtlas))
-        --加载图标
-        grid.imgIcon.sprite = spriteAtlas:GetSprite(strs[2])
-        --设置它的数量
-        grid.Text.text = nowItems[i].num
-
+        --根据数据 创建一个格子对象
+        local grid = ItemGrid:new()
+        --要实例化对象 设置位置
+        grid:Init(self.Content,(i-1)%4*150 + 75,math.floor((i-1)/4)*150 - 75)
+        --初始化它的信息 数量和图标
+        grid:InitData(nowItems[i])
         --存入当前容器
-        table.insert(self.items,grid)
+        table.insert(self.items, grid)
     end
 end
 

@@ -14,5 +14,6 @@ PlayerData:Init()
 --之后的逻辑可以直接使用
 require("MainPanel")
 require("BagPanel")
+require("ItemGrid")
 
 MainPanel:Show()

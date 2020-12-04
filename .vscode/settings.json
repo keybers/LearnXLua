@@ -1,0 +1,8 @@
+{
+    "Lua.diagnostics.severity" : {
+        "redefined-local" : "Hint",
+        "emmy-lua" : "Hint",
+        "undefined-global": "Hint",
+        "lowercase-global": "Hint",
+   }
+}

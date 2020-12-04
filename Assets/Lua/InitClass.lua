@@ -28,6 +28,7 @@ Text = UI.Text
 Button = UI.Button
 Toggle = UI.Toggle
 ScrollRect = UI.ScrollRect
+UIBehaviour = CS.UnityEngine.EventSystems.UIBehaviour
 
 --对于该项目来说 是找一次就行了
 Canvas = GameObject.Find("Canvas").transform
