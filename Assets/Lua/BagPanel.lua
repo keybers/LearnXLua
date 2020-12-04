@@ -17,6 +17,8 @@ BagPanel.Content = nil
 
 --来存储当前 显示的格子 不能设为nil
 BagPanel.items = {}
+--用来存储当前页签类型 避免重复刷新
+BagPanel.nowType = -1
 --2.成员方法
 --初始化方法
 function BagPanel:Init()
@@ -72,6 +74,10 @@ end
 --显示隐藏方法
 function BagPanel:Show()
     self:Init()
+    --第一次进来初始化到装备栏目
+    if self.nowType == -1 then
+        self:ChangeType(1)
+    end
     self.panelObj:SetActive(true)
 end
 
@@ -82,10 +88,17 @@ end
 --逻辑处理函数
 --切页签 type 1装备 2道具 3宝石
 function BagPanel:ChangeType(type)
+    --判断如果已经在该标签 则不更新，否则重复点击就会删除重建，浪费性能
+    if(self.nowType == type) then
+        return
+    end
     --根据玩家信息 来进行格子创建
 
     --更新之前 把老格子删除 BagPanel.items
-
+    for i = 1, #self.items do
+        GameObject.Destroy(self.items[i].Object)
+    end
+    self.items = {}
     --再根据当前选择的类型 来创建新的格子 BagPanel.items
 
     --根据传入的type来选择 显示传入的数据
@@ -128,8 +141,6 @@ function BagPanel:ChangeType(type)
 
         --存入当前容器
         table.insert(self.items,grid)
-        print("存入容器")
-        print(self.items)
     end
 end
 
