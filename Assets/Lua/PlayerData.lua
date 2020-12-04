@@ -3,7 +3,7 @@ PlayerData = {}
 
 PlayerData.equips = {} -- 装备
 PlayerData.items = {}  -- 道具
-PlayerData.games = {}  -- 宝石
+PlayerData.gems = {}  -- 宝石
 
 --为玩家数据写一了 初始化方法 所以直接改这里的数据来源即可
 function PlayerData:Init()
@@ -17,7 +17,7 @@ function PlayerData:Init()
     table.insert(self.items, {id = 3, num = 20})
     table.insert(self.items, {id = 4, num = 6})
     
-    table.insert(self.games, {id = 5, num = 99})
-    table.insert(self.games, {id = 6, num = 99})
+    table.insert(self.gems, {id = 5, num = 99})
+    table.insert(self.gems, {id = 6, num = 99})
 
 end

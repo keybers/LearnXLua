@@ -15,8 +15,8 @@ BagPanel.ToggleGem = nil
 BagPanel.SVBag = nil
 BagPanel.Content = nil
 
---来存储当前 显示的格子
-BagPanel.items = nil
+--来存储当前 显示的格子 不能设为nil
+BagPanel.items = {}
 --2.成员方法
 --初始化方法
 function BagPanel:Init()
@@ -54,13 +54,13 @@ function BagPanel:Init()
             end
         end)
 
-        self.ToggleGem.onValueChanged:AddListener(function(value)
+        self.ToggleItem.onValueChanged:AddListener(function(value)
             if  value == true then
                 self:ChangeType(2)
             end
         end)
 
-        self.ToggleItem.onValueChanged:AddListener(function(value)
+        self.ToggleGem.onValueChanged:AddListener(function(value)
             if  value == true then
                 self:ChangeType(3)
             end
@@ -96,7 +96,7 @@ function BagPanel:ChangeType(type)
     elseif type == 2 then
         nowItems = PlayerData.items
     else --3
-        nowItems = PlayerData.games
+        nowItems = PlayerData.gems
     end
 
     --一个格子表示一个对象 所以不需要创建N个对象脚本 通过临时创建一个空表对象grid来设置
@@ -110,7 +110,6 @@ function BagPanel:ChangeType(type)
         grid.Object.transform:SetParent(self.Content,false)
         --设置位置 x+75,y-75是初始位置
         grid.Object.transform.localPosition = Vector3((i-1)%4*150 + 75, math.floor((i-1)/4)*150 - 75, 0)
-        print(grid.Object.transform.localPosition)
         --设置图标
         grid.imgIcon = grid.Object.transform:Find("imgIcon"):GetComponent(typeof(Image))
         grid.Text = grid.Object.transform:Find("Text"):GetComponent(typeof(Text))
@@ -127,9 +126,10 @@ function BagPanel:ChangeType(type)
         --设置它的数量
         grid.Text.text = nowItems[i].num
 
-        print(grid)
         --存入当前容器
         table.insert(self.items,grid)
+        print("存入容器")
+        print(self.items)
     end
 end
 
