@@ -37,19 +37,19 @@ public class LuaManager : BaseManager<LuaManager>
         luaEnv = new LuaEnv();
         //加载Lua脚本 重定向
         
-        // luaEnv.AddLoader((ref string filepath) =>
-        // {
-        //     string path = Application.dataPath + "/Lua/" + filepath + ".lua";
-        //     if (File.Exists(path))
-        //     {
-        //         return File.ReadAllBytes(path);
-        //     }
-        //     else
-        //     {
-        //         Debug.LogError("文件不存在");
-        //     }
-        //     return null;
-        // });
+        luaEnv.AddLoader((ref string filepath) =>
+        {
+            string path = Application.dataPath + "/Lua/" + filepath + ".lua";
+            if (File.Exists(path))
+            {
+                return File.ReadAllBytes(path);
+            }
+            else
+            {
+                Debug.LogError("文件不存在");
+            }
+            return null;
+        });
 
         //加载AB包的Lua脚本 重定向
         luaEnv.AddLoader((ref string filepath) =>
