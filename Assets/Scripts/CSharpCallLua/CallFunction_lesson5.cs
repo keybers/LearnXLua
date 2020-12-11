@@ -28,7 +28,7 @@ public class CallFunction_lesson5 : MonoBehaviour
         LuaManager.GetInstance().Init();
 
         LuaManager.GetInstance().DoLuaFile("Main");
-        //四种获取Lua脚本中的函数的方式
+        //四种获取Lua脚本中的函数的方式  总结就两种
         //无参数无返回
         //自定义委托
         CoustomCall Call = LuaManager.GetInstance().Global.GetInPath<CoustomCall>("testFun");

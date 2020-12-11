@@ -31,10 +31,4 @@ public class LuaEnv_lesson1 : MonoBehaviour
         //销毁lua解析器,基本上不会去销毁
         env.Dispose();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

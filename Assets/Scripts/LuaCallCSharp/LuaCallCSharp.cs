@@ -260,13 +260,5 @@ public class Lesson12
 
 public class LuaCallCSharp : MonoBehaviour
 {
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
+    
 }
